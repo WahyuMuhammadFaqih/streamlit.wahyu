@@ -2,7 +2,12 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 st.title("Customer Analytics Dashboard")
-df = pd.read_csv("customers.csv")
+import os
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+csv_path = os.path.join(BASE_DIR, "customers.csv")
+
+df = pd.read_csv(csv_path)
 st.sidebar.header("Filter Data")
 departments = st.sidebar.multiselect(
     "Pilih Departments",
